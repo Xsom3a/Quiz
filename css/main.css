@@ -1,0 +1,533 @@
+/* 
+	AppName : Quiz App;
+	Author  : Codester Ismail;
+	Created : April, 2022;
+*/
+
+
+/*********** Global Rules *************/
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+}
+
+
+/******** Css Varibels ************/
+
+:root {
+    --main-color: #8b80b6;
+    /*#2196f3;*/
+    --primary-color: #ddd;
+    --offwhite: #f1f1f1;
+    --white: #fff;
+    --offblack: #262626;
+    --black: #000;
+    --danger: red;
+    --QHead: #222a4a;
+}
+
+
+/************ Body Style ***************/
+
+body {
+    background-color: var(--offwhite);
+    position: relative;
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, Tahoma;
+}
+
+
+/********** App Instructions **************/
+
+.instructions {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--main-color);
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-transform: capitalize;
+}
+
+.instructions ul {
+    list-style-type: decimal;
+    width: 53%;
+}
+
+.instructions ul li {
+    margin: 0 auto 35px;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--white)
+}
+
+.instructions a {
+    display: inline-block;
+    width: 50%;
+    margin: 15px auto;
+    padding: 7px 15px;
+    font-size: 25px;
+    border-radius: 7px;
+    background-color: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/********** App Container **************/
+
+.container {
+    width: 98%;
+    margin: auto;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+/************* Quiz App Container *****************/
+
+.quiz-app {
+    background: var(--offwhite);
+    text-transform: capitalize;
+    width: 65%;
+    margin: auto;
+}
+
+
+/************* Top Bar ****************/
+
+.quiz-app .top-bar select {
+    border-radius: 7px;
+    width: fit-content;
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 5px;
+}
+
+
+/*********** Select Box ***************/
+
+.quiz-app .top-bar select option {
+    background-color: var(--main-color);
+    color: var(--white);
+}
+
+
+/*********** Top Bar & Bottom Bar ***************/
+
+.quiz-app .top-bar,
+.quiz-app .bottom-bar {
+    width: 100%;
+    background: var(--white);
+    color: var(--black);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, .2);
+}
+
+.quiz-app .top-bar .category,
+.quiz-app .top-bar .questions-count {
+    font-weight: bold;
+}
+
+.quiz-app .top-bar .questions-count span {
+    color: var(--main-color);
+}
+
+
+/************** The Question & Answers Container *************/
+
+.quiz-app .question {
+    background-color: var(--white);
+    padding-top: 20px;
+}
+
+
+/*********** The Question Head ***************/
+
+.quiz-app .question h3 {
+    margin: 0 0 50px 43px;
+    color: var(--QHead);
+    line-height: 1.8;
+}
+
+
+/*********** The Question & Answers List Item Container ************/
+
+.quiz-app .question ul {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+}
+
+
+/*********** The Question & Answers List Item ************/
+
+.quiz-app .question ul li {
+    margin: 0 0 25px 1%;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0 15px 10px;
+}
+
+
+/****************** Order List Items *********************/
+
+.quiz-app .question ul li:first-child {
+    order: 2;
+}
+
+.quiz-app .question ul li:nth-child(2) {
+    order: 1;
+}
+
+.quiz-app .question ul li:nth-child(3) {
+    order: 4;
+}
+
+
+/********* Answers Label *************/
+
+.quiz-app .question ul li label {
+    cursor: pointer;
+    line-height: 1.6;
+}
+
+
+/********** Input Radio To Check Answer ************/
+
+.quiz-app .question ul li input {
+    padding: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+    position: relative;
+}
+
+.quiz-app .question ul li.selected {
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 3px 3px 15px 0 rgb(0 0 0 / 30%);
+}
+
+.quiz-app .question ul li.selected input {
+    accent-color: var(--white);
+}
+
+
+/******* Message ***********/
+
+.message {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    display: block;
+    font-size: 22px;
+    color: var(--danger);
+    font-weight: bold;
+    letter-spacing: 2px;
+    visibility: hidden;
+}
+
+
+/********** Message Selection ************/
+
+
+/* .message::selection {
+    background-color: transparent;
+    color: transparent;
+} */
+
+
+/*********** Submit Button *******************/
+
+.quiz-app button {
+    width: 90%;
+    border-radius: 7px;
+    padding: 15px 0;
+    text-align: center;
+    text-transform: capitalize;
+    background-color: var(--main-color);
+    color: var(--white);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, .2)
+}
+
+
+/************ Bottom Bar **************/
+
+.quiz-app .bottom-bar {
+    transition: opacity .3s ease-out;
+}
+
+
+/******** Bullets *********/
+
+.quiz-app .bottom-bar .bullets {
+    width: 80%;
+}
+
+.quiz-app .bottom-bar .bullets ul {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Bullets List */
+
+.quiz-app .bottom-bar .bullets ul li {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    opacity: .7;
+    margin: 0 5px;
+}
+
+
+/* Active Bullet */
+
+.quiz-app .bottom-bar .bullets ul li.active {
+    background-color: var(--QHead);
+    opacity: 1;
+}
+
+
+/* Count Down */
+
+.quiz-app .bottom-bar .count {
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+/************ Result Box  **************/
+
+.quiz-app .question .result-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 30px;
+}
+
+.quiz-app .question .result-box div {
+    width: 90%;
+    margin: auto;
+    line-height: 1.8;
+}
+
+
+/* Global Style To Score Number */
+
+.quiz-app .question .result-box span {
+    display: inline-block;
+    margin: 0 8px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+/* Fail Span & Time Over Color */
+
+.quiz-app .question .result-box span.fail,
+.quiz-app .question .result-box.time-over {
+    color: var(--danger);
+    justify-content: center;
+}
+
+
+/* Succses Span Color */
+
+.quiz-app .question .result-box span.succses {
+    color: var(--main-color)
+}
+
+
+/* Progress Conatiner */
+
+.quiz-app .question .result-box .progress-status {
+    position: relative;
+}
+
+
+/* Progress Pragrah */
+
+.quiz-app .question .result-box .progress-status p {
+    margin-bottom: 45px;
+}
+
+
+/* Progress */
+
+.quiz-app .question .progress-status progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 100%;
+    height: 20px;
+}
+
+
+/* Progress Container */
+
+progress::-webkit-progress-bar {
+    border-radius: 20px;
+    background-color: var(--black);
+    overflow: hidden;
+}
+
+
+/* Progress Value Style */
+
+progress::-webkit-progress-value {
+    background: var(--main-color);
+    border-radius: 20px 0 0 20px;
+}
+
+
+/* Progress Widget */
+
+.quiz-app .question .progress-status span {
+    padding: 5px;
+    border-radius: 7px;
+    position: absolute;
+    bottom: 40px;
+    width: fit-content;
+    text-decoration: none;
+    background-color: var(--main-color);
+    color: var(--white);
+    z-index: 1;
+}
+
+
+/* Widget Bottom Shape */
+
+.quiz-app .question .progress-status span::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+    border-width: 30px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--main-color);
+}
+
+
+/* Widget & Progress On Fail Background */
+
+.quiz-app .question .progress-status span.fail-state,
+.quiz-app .question progress.fail-state::-webkit-progress-value {
+    background-color: var(--danger);
+}
+
+
+/* Bottom Widget Shape On Fail State */
+
+.quiz-app .question .progress-status span.fail-state::after {
+    border-color: transparent transparent transparent var(--danger);
+}
+
+
+/*========== Start Responsive Design ============*/
+
+@media screen and (max-width: 768px) {
+    /*=============== Top Bar  ====================*/
+    .top-bar {
+        flex-wrap: wrap;
+    }
+    /*=============== Top Bar Category & Questions Count  ====================*/
+    .top-bar .category,
+    .top-bar .questions-count {
+        width: 100%;
+        text-align: left;
+        margin-left: 15px;
+    }
+    /*=============== Quiz App Container ====================*/
+    .quiz-app {
+        width: 100% !important;
+    }
+    /*============== Instructions Container ============*/
+    .instructions {
+        position: fixed;
+    }
+    .instructions ul {
+        width: 100%;
+    }
+    /*=============== Top Bar Category  ====================*/
+    .top-bar .category {
+        margin-bottom: 15px;
+    }
+    /*=============== The Question ====================*/
+    .quiz-app .question h3 {
+        letter-spacing: 0;
+        line-height: 1.6;
+    }
+    /*=============== Error Message ====================*/
+    .message {
+        font-size: 18px;
+    }
+    /*=============== Bottom Bar & Bullets  ====================*/
+    .quiz-app .bottom-bar {
+        justify-content: center;
+    }
+    .quiz-app .bottom-bar .bullets {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .instructions {
+        height: 100vh;
+        overflow: auto;
+    }
+    .instructions ul {
+        margin-bottom: 25px;
+    }
+    .instructions ul,
+    .instructions button {
+        height: 70vh
+    }
+}
+
+
+/*========== End Responsive Design ============*/

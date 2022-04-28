@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FavIcon -->
+    <link rel="icon" href="images/icon.png" />
+    <!-- Css Main File -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- App Title -->
+    <title>Quiz App</title>
+</head>
+
+<body>
+    <!-- Instructions -->
+    <div class="instructions">
+        <ul>
+            <li>
+                the time of every question is: <span>15</span> seconds.
+            </li>
+            <li>
+                select the category of answer from the top select box.
+            </li>
+            <li>
+                select your answer then clcik submit button.
+            </li>
+            <li>
+                look up for the remainning total time on bottom bar.
+            </li>
+        </ul>
+        <a href="#">start quiz</a>
+    </div>
+    <!-- Start App Container -->
+    <div class="container">
+        <!-- Start Quiz App  -->
+        <div class="quiz-app">
+            <!-- Top App Bar -->
+            <div class="top-bar">
+                <!-- Questions Category -->
+                <div class="category">
+                    category: <select name="category" id="category" title="category"></select>
+                    <!-- <span></span> -->
+                </div>
+                <!-- Questions Count -->
+                <div class="questions-count">
+                    questions : <span></span>
+                </div>
+            </div>
+            <!-- The Questions -->
+            <div class="question"></div>
+            <!-- None Select Message -->
+            <span class="message">please select an answer</span>
+            <!-- Submit Button -->
+            <button>Enter Quiz</button>
+            <!-- App Bottom Bar -->
+            <div class="bottom-bar">
+                <div class="bullets"></div>
+                <div class="count"></div>
+            </div>
+        </div>
+        <!-- End Quiz App  -->
+    </div>
+    <!-- End App Container -->
+
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
