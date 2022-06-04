@@ -134,7 +134,7 @@
         questionNumber = everyCategoryallDataKL;
 
         //======== Every Question Have [30] Second .
-        allTime = 15 * everyCategoryallDataKL;
+        allTime = 50 * everyCategoryallDataKL;
 
         //========== Main Button Function On Click .
         button.onclick = (e) => {
